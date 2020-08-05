@@ -7,7 +7,6 @@
 	<link rel="icon" type="image/x-icon" href="images/icon.png">
 
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<!--<link rel="stylesheet" type="text/css" href="gallery/css/home.css" />-->
 </head>
 <body>
 	<?php include_once("header.php"); ?>
@@ -55,67 +54,12 @@
 			} ?>
 		</div>
 		<br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br>		
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	</div>                                                                                              <!-- Close of Total page  -->
-	<!--
-	<div class="container-fluid p-0">
-		<div class="jumbotron w-100 mb-0 p-0 jb jb-mn">
-			<div class="card w-100">
-			  <img class="card-img-top" src="/gallery/img/circle.png" alt="Card image cap">
-			  <div class="card-img-overlay">
-			    <h4 class="card-title display-4" style="color:red;">Health Assistant is
-						<div class="txVarCont">
-							<div class="txCont">
-								<div class="txVar">Smart Prediction System</div>
-								<div class="txVar">Now Free</div>
-								<div class="txVar">Anywhere, Anytime</div>
-								<div class="txVar">Bot ? Doctor ?</div>
-							</div>
-						</div>
-					</h4>
-			    <p class="card-text" style="color:black;">It can Identify even Bigger Health Problems.</p>
-			    <?php
-					if(isset($_SESSION['user']))
-					{
-							echo
-							'<a href="view.php" class="btn btn-info btn-lg pl-4 pr-4" style="background-color:red;border:none;">Try Now</a>
-							<br>
-							<span style="letter-spacing: .1em;color:gray;">It\'s Free</span>';
-					} ?>
-			  </div>
-			</div>
-		</div>
+	
 
-		<div class="jumbotron w-100 mb-0 bg-light jb jb-sc">
-			<div class="wrk display-4">See How It Works</div>
-			<div class="wr-stp row justify-content-center">
-
-				<div class="col-md-3 m-4 ct-a">
-					<div class="cnt">1</div>
-				  <img class="card-img-top" src="/gallery/img/account.png" alt="Card image cap">
-				  <div class="card-body">
-				    <p class="card-text display-1">Create Your Free Account</p>
-				  </div>
-				</div>
-
-				<div class="col-md-3 m-4 ct-b">
-					<div class="cnt">2</div>
-					<img class="card-img-top" src="/gallery/img/idea.png" alt="Card image cap">
-				  <div class="card-body">
-				    <p class="card-text display-1">Identify Your Symptoms</p>
-				  </div>
-				</div>
-
-				<div class="col-md-3 m-4 ct-c">
-					<div class="cnt">3</div>
-					<img class="card-img-top" src="/gallery/img/notes.png" alt="Card image cap">
-				  <div class="card-body">
-				    <p class="card-text display-1">Get quick medical advice</p>
-				  </div>
-				</div>
-
-			</div>
-		</div> -->
+	
 
 	<?php include_once("footer.php"); ?>
 	<script>
