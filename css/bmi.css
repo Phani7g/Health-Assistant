@@ -24,7 +24,7 @@ label{
 }
 
 .bmi button, .symptoms button, .lab_results button, .examine button {
-  width: 50px;
+  width: 60px;
   outline: none;
   padding: 5px;
   font-weight: normal;
