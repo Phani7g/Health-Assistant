@@ -83,7 +83,7 @@ else
        }
        else // since user entered step-4. Goto Submit
        {
-            echo '<button id="start" onclick="step4()" style="border-radius:5px;width:95px;">next4</button>';
+            echo '<button id="start" onclick="step4()" style="border-radius:5px;width:95px;">next</button>';
             echo '<script type="text/javascript">
              step4();
              </script>';
@@ -91,7 +91,7 @@ else
      }
      else  // since user entered step-2. Goto Step-3
      {
-		     echo '<button id="start" onclick="step3()" style="border-radius:5px;width:95px;">next3</button>';
+		     echo '<button id="start" onclick="step3()" style="border-radius:5px;width:95px;">next</button>';
 		     echo '<script type="text/javascript">
 					step3();
 		      </script>';
@@ -99,7 +99,7 @@ else
   }
 	else     // if there is value in bmi, user entered step-1. So, got to step2
 	{
-		echo '<button id="start" onclick="step2()" style="border-radius:5px;width:95px;">next2</button>';
+		echo '<button id="start" onclick="step2()" style="border-radius:5px;width:95px;">next</button>';
 		echo '<script type="text/javascript">
 					step2();
 		</script>';
