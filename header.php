@@ -1,9 +1,9 @@
-	<link rel="stylesheet" type="text/css" href="css/header.css" />
+<link rel="stylesheet" type="text/css" href="css/header.css" />
 	<div class="navigationbar">
 		<ul>
 
-						<li><a href="index.php"><img src="images/logo.png" width="100px" alt="Logo"></a></li>
-						<li><a href="reset.php" style="text-decoration:none;"><h1>Health Assitant</h1></a></li>
+						<li><a href="index.php"><img src="images/logo.png" width="100px" alt="Home"></a></li>
+						<li><a href="reset.php" style="text-decoration:none;" title="reset"><h1>Health Assitant</h1></a></li>
 
 
 				<?php
@@ -19,12 +19,7 @@
 				}
 				else
 				{
-						$u = $_SESSION["user"];
-						echo '<li class="listb">
-						  <button onclick="showlogout()">
-						    Hello, '.$u.'
-						  </button></li>
-						  <li class="lista" id="logout"><a href="logout.php">Logout</a></li>';;
+						echo '<li class="lista" style="padding:10px;"><a href="logout.php" title="logout"><img src="images/logout.png" height="50px"></a></li>';
 				}
 				?>
 			</ul>

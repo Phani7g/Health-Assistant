@@ -59,9 +59,10 @@ if($result1 = $con->query($query1))
 // calculating the probability of user entered symptoms
 if($z)
 {
-$p = round((sizeof($z))/9,3);
+  $p = round((sizeof($z))/9,3);
 }
-else {
+else
+{
   $p=0;
 }
 // extracting the approximate disease with almost equal symtpoms
@@ -70,7 +71,7 @@ for($i=0;$i<sizeof($z);$i++)
 {
     $z1 = $z1.$z[$i].' = 1';
     $q1[$i] = "SELECT Disease FROM symptoms WHERE ".$z1;
-    echo $q1[$i].'<br>';
+    //echo $q1[$i].'<br>';
     $k = 0;
     if($re1 = $con->query($q1[$i]))
     {
@@ -82,7 +83,7 @@ for($i=0;$i<sizeof($z);$i++)
               $d = $row["Disease"];
               $ds[$k] = $d;
               $k++;$l++;
-              echo $d.' ';
+              //echo $d.' ';
           }while($row=$re1->fetch_assoc());
 
         }
@@ -90,7 +91,7 @@ for($i=0;$i<sizeof($z);$i++)
     }
 
     $z1 = $z1.' && ';
-    echo '<br>';
+    //echo '<br>match end<br>';
 }
 // finalizing the disease array
 for($i=0;$i<$l;$i++)
@@ -99,6 +100,7 @@ for($i=0;$i<$l;$i++)
   //echo $sug2[$i].' <br>';
 }
 // probability matching
+/*
 $q2 = "SELECT Disease FROM symptoms WHERE prob = '$p'";
 $k=0;
 //echo $q2.'<br>';
@@ -115,10 +117,15 @@ if($re2 = $con->query($q2))
           }while($row=$re2->fetch_assoc());
       }
 }
+for($i=0;$i<$k;$i++)
+{
+    //$sug2[$i]=$ds[$i];
+  //echo $dq[$i].' <br>';
+}*/
 // finding min difference probability
 $q3 = "SELECT * FROM symptoms";
 $k=0;
-//echo $q2.'<br>';
+//echo $q3.'<br>';
 if($re3 = $con->query($q3))
 {
       if ($row=$re3->fetch_assoc())
@@ -132,6 +139,8 @@ if($re3 = $con->query($q3))
               $prob[$k] = $p1;
               $k++;
           }while($row=$re3->fetch_assoc());
+
+          //echo '<br>';
           function cf( $x, $y)
 	        {
 		          if ($x== $y)
@@ -143,21 +152,23 @@ if($re3 = $con->query($q3))
 	        }
           usort($diff,"cf");
           //echo ''.(min($diff));
-
+          //echo '<br>';
           $h=0;
+          do{
           for($i=0;$i<$k;$i++)
           {
             if($diff[$h] == abs($p- $prob[$i])) // if there is min difference
             {
-              $extra = $dp[$i];
+              //$extra = $dp[$i];
               for($x=0;$x<$l;$x++)
               {
                 if($sug2[$x]==$dp[$i])
                 {
                     $suggestion = $dp[$i];
+                    //echo $h;
                     break;
                 }
-                else                            // if min diiff didnt match, consider match prob
+                /*else                            // if min diiff didnt match, consider match prob
                 {
                     for($t=0;$t<sizeof($dq);$t++)
                     {
@@ -166,27 +177,26 @@ if($re3 = $con->query($q3))
                         $suggestion = $sug2[$y];
                     }
                     }
-                }
+                }*/
 
               }
-            }
-            else
-            {
-                $h++;
-                  //  $suggestion = $sug2[0];
+              if($suggestion)
+                break;
             }
           }
+          if($suggestion)
+              break;
+          $h=$h+1;
+        }while($h<$k);
 
       }
 }
 if($p==0)
 {
-  $suggestion = $extra;
+  $suggestion='Sorry, We are unable to find your disease becuase you didnt observed any of the mentioned Symptoms';
 }
-else  // if there is no probability match then it has to take the sug2 first disease
-{
-  //$suggestion=$sug2[0];
-}
+//else  // if there is no probability match then it has to take the sug2 first disease
+
 
 /*for($x=0;$x<$l;$x++)
 {

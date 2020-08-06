@@ -10,10 +10,6 @@ if(!isset($_SESSION['user']))
 	window.location.href='index.php';
 	</SCRIPT>");
 }
-else
-{
-	require_once("lib/layout.php");
-}
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +21,8 @@ else
 	<link rel="icon" type="image/x-icon" href="images/icon.png">
   <link rel="stylesheet" type="text/css" href="css/bmi.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -34,12 +32,13 @@ else
 </div>
 <div class="totalpage">
   <br>
-<center>
-  <div class="bgimage"><img src="images/circle.png" width="500px"alt="Health Prediction"></div>                                                                                        <!-- Close of Login -->
+
+  <div class="bgimage w3-spin"><img src="images/circle.png" width="500px"alt="Health Prediction"></div>                                                                                        <!-- Close of Login -->
   <div class="content">
     <p id="line1" ></p>
     <p class="head">Health Assistant</p>
   </div>
+  <center>
 	<?php
 	ini_set( "display_errors", 0);
 	include ("connection.php");
@@ -124,7 +123,7 @@ else
 				<td></td>
 			</tr>
 		</table><br>
-		<button type="submit" style="outline:none;">save</button>
+		<button type="submit" style="outline:none;">save</button>&nbsp;&nbsp;
 		<button type="button" style="outline:none;" onclick="step2()">next</button>
 	</form>
 	</center>
@@ -169,6 +168,7 @@ else
 			</tr>
 		</table>
 		<br>
+    <button type="button" style="outline:none;" onclick="start()">prev</button>&nbsp;&nbsp;
 		<button type="submit" style="outline:none;">save</button>&nbsp;&nbsp;
 		<button type="button" style="outline:none;" onclick="step3()">next</button>
   </form>
@@ -194,6 +194,7 @@ else
 			</tr>
 		</table>
 		<br>
+    <button type="button" style="outline:none;" onclick="step2()">prev</button>&nbsp;&nbsp;
 		<button type="submit" style="outline:none;">save</button>&nbsp;&nbsp;
 		<button type="button" style="outline:none;" onclick="step4()">next</button>
 	</form>
@@ -232,12 +233,23 @@ else
 			</tr>
 		</table>
 		<br>
+    <button type="button" style="outline:none;" onclick="step3()">prev</button>&nbsp;&nbsp;
 		<button type="submit" style="outline:none;">save</button>&nbsp;&nbsp;
 		<button type="button" style="outline:none;"><a href="submit.php" style="text-decoration:none;color:white;">Submit</a></button>
   </form>
 </center>
 </div>
 </center>
+<div class="instructions" style="margin:50px;">
+  <br><p style="font-size:25px;"><b>INSTRUCTIONS</b><br>
+     1. Click on start & enter all the details & Symptoms<br>
+     2. Save each step individually & then goto next step<br>
+     3. The buttons next & prev are used only to change the saved data<br>
+     4. On clicking on next wont take your input, just move onto the next step<br>
+     5. To reset all your details, Click on the title of the page<br>
+     6. To logout from your account, double click on the top right corner<br>
+     7. To goto your homepage, click on the title logo</p><br>
+</div>
 <br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
@@ -260,18 +272,21 @@ else
 		{
 			document.getElementById('s1').style.display="block";
 			document.getElementById('start').style.display="none";
+      document.getElementById('s2').style.display="none";
 		}
 		function step2()
 		{
 			document.getElementById('s2').style.display="block";
 			document.getElementById('s1').style.display="none";
 			document.getElementById('start').style.display="none";
+      document.getElementById('s3').style.display="none";
 		}
 		function step3()
 		{
 			document.getElementById('s3').style.display="block";
 			document.getElementById('s2').style.display="none";
 			document.getElementById('start').style.display="none";
+      document.getElementById('s4').style.display="none";
 		}
     function step4()
     {
